@@ -37,19 +37,31 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="使用Maven构建构建时跳过单元测试在pom.xml加入以下插件, 设置skip = true
-1234567891011&amp;lt;plugin&amp;gt;      &amp;lt;groupId&amp;gt;      	org.apache.maven.plugins      &amp;lt;/groupId&amp;gt;      &amp;lt;artifactId&amp;gt;      	maven-surefire-plugi">
+<meta name="description" content="Maven 是什么
+Maven是基于项目对象模型(POM)，可以通过一小段描述信息来管理项目的构建，报告和文档的软件项目管理工具。
+
+Maven 首先是一个项目管理工具, 但同样也能用来构建项目。
+使用Maven构建构建时跳过单元测试在pom.xml加入以下插件, 设置skip = true
+1234567891011&amp;lt;plugin&amp;gt;     &amp;lt;groupId&amp;gt;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Maven远程部署配置">
 <meta property="og:url" content="http://azureland.github.io/2015/08/07/Maven 配置远程部署/index.html">
 <meta property="og:site_name" content="Azure's Land">
-<meta property="og:description" content="使用Maven构建构建时跳过单元测试在pom.xml加入以下插件, 设置skip = true
-1234567891011&amp;lt;plugin&amp;gt;      &amp;lt;groupId&amp;gt;      	org.apache.maven.plugins      &amp;lt;/groupId&amp;gt;      &amp;lt;artifactId&amp;gt;      	maven-surefire-plugi">
-<meta property="og:updated_time" content="2015-08-06T17:00:02.000Z">
+<meta property="og:description" content="Maven 是什么
+Maven是基于项目对象模型(POM)，可以通过一小段描述信息来管理项目的构建，报告和文档的软件项目管理工具。
+
+Maven 首先是一个项目管理工具, 但同样也能用来构建项目。
+使用Maven构建构建时跳过单元测试在pom.xml加入以下插件, 设置skip = true
+1234567891011&amp;lt;plugin&amp;gt;     &amp;lt;groupId&amp;gt;">
+<meta property="og:updated_time" content="2015-08-06T17:22:38.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Maven远程部署配置">
-<meta name="twitter:description" content="使用Maven构建构建时跳过单元测试在pom.xml加入以下插件, 设置skip = true
-1234567891011&amp;lt;plugin&amp;gt;      &amp;lt;groupId&amp;gt;      	org.apache.maven.plugins      &amp;lt;/groupId&amp;gt;      &amp;lt;artifactId&amp;gt;      	maven-surefire-plugi">
+<meta name="twitter:description" content="Maven 是什么
+Maven是基于项目对象模型(POM)，可以通过一小段描述信息来管理项目的构建，报告和文档的软件项目管理工具。
+
+Maven 首先是一个项目管理工具, 但同样也能用来构建项目。
+使用Maven构建构建时跳过单元测试在pom.xml加入以下插件, 设置skip = true
+1234567891011&amp;lt;plugin&amp;gt;     &amp;lt;groupId&amp;gt;">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -183,7 +195,7 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-08-07T01:00:02+08:00" content="2015-08-07">
+          <time itemprop="dateCreated" datetime="2015-08-07T01:22:38+08:00" content="2015-08-07">
             2015-08-07
           </time>
         </span>
@@ -224,14 +236,18 @@
       
 
       
-        <span itemprop="articleBody"><h2 id="使用Maven构建">使用Maven构建</h2><h4 id="构建时跳过单元测试">构建时跳过单元测试</h4><p>在<strong>pom.xml</strong>加入以下插件, 设置<strong>skip = true</strong></p>
-<pre><code><span class="comment"><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">plugin</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">groupId</span>&gt;</span></span><br><span class="line">      	org.apache.maven.plugins</span><br><span class="line">      <span class="tag">&lt;/<span class="title">groupId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">artifactId</span>&gt;</span></span><br><span class="line">      	maven-surefire-plugin</span><br><span class="line">      <span class="tag">&lt;/<span class="title">artifactId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">configuration</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="title">skip</span>&gt;</span>true<span class="tag">&lt;/<span class="title">skip</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="title">configuration</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">plugin</span>&gt;</span></span><br></pre></td></tr></table></figure></span>
-</code></pre><h4 id="构建时忽略单元测试错误">构建时忽略单元测试错误</h4><p>在<strong>pom.xml</strong>加入以下插件, 设置<strong>testFailureIgnore = true</strong></p>
-<pre><code><span class="comment"><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">plugin</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">groupId</span>&gt;</span></span><br><span class="line">      	org.apache.maven.plugins</span><br><span class="line">      <span class="tag">&lt;/<span class="title">groupId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">artifactId</span>&gt;</span></span><br><span class="line">      	maven-surefire-plugin</span><br><span class="line">      <span class="tag">&lt;/<span class="title">artifactId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">configuration</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="title">testFailureIgnore</span>&gt;</span>true<span class="tag">&lt;/<span class="title">testFailureIgnore</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="title">configuration</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">plugin</span>&gt;</span></span><br></pre></td></tr></table></figure></span>
-</code></pre><a id="more"></a>
-<h2 id="使用Maven对wildfly进行远程部署">使用Maven对wildfly进行远程部署</h2><h4 id="本地配置">本地配置</h4><p>在<strong>pom.xml</strong>加入以下插件, 使用 <strong>mvn wildfly:deploy</strong> 命令进行部署, <strong>mvn wildfly:undeploy</strong> 命令移除部署</p>
-<pre><code><span class="comment"><figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">&lt;plugin&gt;</span></span><br><span class="line">   	<span class="variable">&lt;groupId&gt;</span>org.wildfly.plugins<span class="variable">&lt;/groupId&gt;</span></span><br><span class="line">       <span class="variable">&lt;artifactId&gt;</span>wildfly-maven-plugin<span class="variable">&lt;/artifactId&gt;</span></span><br><span class="line">       <span class="variable">&lt;version&gt;</span><span class="number">1.0</span>.<span class="number">0</span>.Final<span class="variable">&lt;/version&gt;</span></span><br><span class="line">           <span class="variable">&lt;configuration&gt;</span></span><br><span class="line">                   <span class="variable">&lt;hostname&gt;</span>$&#123;wildfly.hostname&#125;<span class="variable">&lt;/hostname&gt;</span></span><br><span class="line">                   <span class="variable">&lt;port&gt;</span>$&#123;wildfly.<span class="keyword">port</span>&#125;<span class="variable">&lt;/port&gt;</span></span><br><span class="line">                   <span class="variable">&lt;username&gt;</span>$&#123;wildfly.username&#125;<span class="variable">&lt;/username&gt;</span></span><br><span class="line">                   <span class="variable">&lt;password&gt;</span>$&#123;wildfly.password&#125;<span class="variable">&lt;/password&gt;</span></span><br><span class="line">           <span class="variable">&lt;/configuration&gt;</span></span><br><span class="line">           <span class="variable">&lt;executions&gt;</span></span><br><span class="line">               <span class="variable">&lt;execution&gt;</span></span><br><span class="line">                   <span class="variable">&lt;phase&gt;</span>package<span class="variable">&lt;/phase&gt;</span></span><br><span class="line">                   <span class="variable">&lt;goals&gt;</span></span><br><span class="line">                       <span class="variable">&lt;goal&gt;</span>deploy<span class="variable">&lt;/goal&gt;</span></span><br><span class="line">                   <span class="variable">&lt;/goals&gt;</span></span><br><span class="line">               <span class="variable">&lt;/execution&gt;</span></span><br><span class="line">            <span class="variable">&lt;/executions&gt;</span></span><br><span class="line"><span class="variable">&lt;/plugin&gt;</span></span><br></pre></td></tr></table></figure></span>
-</code></pre><h4 id="远程配置">远程配置</h4><p>1、监听端口，默认为 <strong>9990</strong></p>
+        <span itemprop="articleBody"><h1 id="Maven_是什么">Maven 是什么</h1><blockquote>
+<p>Maven是基于项目对象模型(POM)，可以通过一小段描述信息来管理项目的构建，报告和文档的软件项目管理工具。</p>
+</blockquote>
+<p>Maven 首先是一个<strong>项目管理工具</strong>, 但同样也能用来<strong>构建项目</strong>。</p>
+<h1 id="使用Maven构建">使用Maven构建</h1><h2 id="构建时跳过单元测试">构建时跳过单元测试</h2><p>在<strong>pom.xml</strong>加入以下插件, 设置<strong>skip = true</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">plugin</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="title">groupId</span>&gt;</span></span><br><span class="line">     	org.apache.maven.plugins</span><br><span class="line">     <span class="tag">&lt;/<span class="title">groupId</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="title">artifactId</span>&gt;</span></span><br><span class="line">     	maven-surefire-plugin</span><br><span class="line">     <span class="tag">&lt;/<span class="title">artifactId</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="title">configuration</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">skip</span>&gt;</span>true<span class="tag">&lt;/<span class="title">skip</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;/<span class="title">configuration</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">plugin</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="构建时忽略单元测试错误">构建时忽略单元测试错误</h2><p>在<strong>pom.xml</strong>加入以下插件, 设置<strong>testFailureIgnore = true</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">plugin</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">groupId</span>&gt;</span></span><br><span class="line">      	org.apache.maven.plugins</span><br><span class="line">      <span class="tag">&lt;/<span class="title">groupId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">artifactId</span>&gt;</span></span><br><span class="line">      	maven-surefire-plugin</span><br><span class="line">      <span class="tag">&lt;/<span class="title">artifactId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">configuration</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="title">testFailureIgnore</span>&gt;</span>true<span class="tag">&lt;/<span class="title">testFailureIgnore</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="title">configuration</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">plugin</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h1 id="使用Maven对wildfly进行远程部署">使用Maven对wildfly进行远程部署</h1><h2 id="本地配置">本地配置</h2><p>在<strong>pom.xml</strong>加入以下插件, 使用 <strong>mvn wildfly:deploy</strong> 命令进行部署, <strong>mvn wildfly:undeploy</strong> 命令移除部署</p>
+<figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">&lt;plugin&gt;</span></span><br><span class="line">   	<span class="variable">&lt;groupId&gt;</span>org.wildfly.plugins<span class="variable">&lt;/groupId&gt;</span></span><br><span class="line">       <span class="variable">&lt;artifactId&gt;</span>wildfly-maven-plugin<span class="variable">&lt;/artifactId&gt;</span></span><br><span class="line">       <span class="variable">&lt;version&gt;</span><span class="number">1.0</span>.<span class="number">0</span>.Final<span class="variable">&lt;/version&gt;</span></span><br><span class="line">           <span class="variable">&lt;configuration&gt;</span></span><br><span class="line">                   <span class="variable">&lt;hostname&gt;</span>$&#123;wildfly.hostname&#125;<span class="variable">&lt;/hostname&gt;</span></span><br><span class="line">                   <span class="variable">&lt;port&gt;</span>$&#123;wildfly.<span class="keyword">port</span>&#125;<span class="variable">&lt;/port&gt;</span></span><br><span class="line">                   <span class="variable">&lt;username&gt;</span>$&#123;wildfly.username&#125;<span class="variable">&lt;/username&gt;</span></span><br><span class="line">                   <span class="variable">&lt;password&gt;</span>$&#123;wildfly.password&#125;<span class="variable">&lt;/password&gt;</span></span><br><span class="line">           <span class="variable">&lt;/configuration&gt;</span></span><br><span class="line">           <span class="variable">&lt;executions&gt;</span></span><br><span class="line">               <span class="variable">&lt;execution&gt;</span></span><br><span class="line">                   <span class="variable">&lt;phase&gt;</span>package<span class="variable">&lt;/phase&gt;</span></span><br><span class="line">                   <span class="variable">&lt;goals&gt;</span></span><br><span class="line">                       <span class="variable">&lt;goal&gt;</span>deploy<span class="variable">&lt;/goal&gt;</span></span><br><span class="line">                   <span class="variable">&lt;/goals&gt;</span></span><br><span class="line">               <span class="variable">&lt;/execution&gt;</span></span><br><span class="line">            <span class="variable">&lt;/executions&gt;</span></span><br><span class="line"><span class="variable">&lt;/plugin&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="远程配置">远程配置</h2><p>1、监听端口，默认为 <strong>9990</strong></p>
 <p>2、创建<strong>management</strong>用户, 使用自带的 <strong>add-user.sh</strong> 或者 <strong>add-user.bat</strong></p>
 <hr>
 <p>参考资料：</p>
@@ -239,7 +255,6 @@
 <li><a href="http://docs.jboss.org/wildfly/plugins/maven/latest/index.html" target="_blank" rel="external">wildfly-maven-plugin</a></li>
 <li><a href="http://blog.csdn.net/symgdwyh/article/details/4289080" target="_blank" rel="external">maven中跳过单元测试</a></li>
 <li><a href="http://blog.csdn.net/symgdwyh/article/details/4288972" target="_blank" rel="external">maven中忽略单元测试错误</a></li>
-<li><a href="http://lauraliparulo.altervista.org/jboss-wildfly-maven-plugin-to-deploy-on-localhostremote-server/" target="_blank" rel="external">Jboss / Wildfly maven plugin to deploy on localhost/remote server</a></li>
 </ul>
 </span>
       
@@ -256,18 +271,6 @@
         </div>
       
 
-      
-        <div class="post-nav">
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/08/07/draft/" rel="prev">draft</a>
-            
-          </div>
-
-          <div class="post-nav-next post-nav-item">
-            
-          </div>
-        </div>
       
 
       
@@ -330,7 +333,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-count">1</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -386,7 +389,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Maven构建"><span class="nav-number">1.</span> <span class="nav-text">使用Maven构建</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#构建时跳过单元测试"><span class="nav-number">1.0.1.</span> <span class="nav-text">构建时跳过单元测试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#构建时忽略单元测试错误"><span class="nav-number">1.0.2.</span> <span class="nav-text">构建时忽略单元测试错误</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Maven对wildfly进行远程部署"><span class="nav-number">2.</span> <span class="nav-text">使用Maven对wildfly进行远程部署</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#本地配置"><span class="nav-number">2.0.1.</span> <span class="nav-text">本地配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#远程配置"><span class="nav-number">2.0.2.</span> <span class="nav-text">远程配置</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Maven_是什么"><span class="nav-number">1.</span> <span class="nav-text">Maven 是什么</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用Maven构建"><span class="nav-number">2.</span> <span class="nav-text">使用Maven构建</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#构建时跳过单元测试"><span class="nav-number">2.1.</span> <span class="nav-text">构建时跳过单元测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#构建时忽略单元测试错误"><span class="nav-number">2.2.</span> <span class="nav-text">构建时忽略单元测试错误</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用Maven对wildfly进行远程部署"><span class="nav-number">3.</span> <span class="nav-text">使用Maven对wildfly进行远程部署</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#本地配置"><span class="nav-number">3.1.</span> <span class="nav-text">本地配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#远程配置"><span class="nav-number">3.2.</span> <span class="nav-text">远程配置</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
