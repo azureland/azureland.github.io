@@ -28,7 +28,7 @@
 
 
 
-  <meta name="keywords" content="Hexo,next" />
+  <meta name="keywords" content="java,maven," />
 
 
 
@@ -45,7 +45,7 @@
 <meta property="og:site_name" content="Azure's Land">
 <meta property="og:description" content="使用Maven构建构建时跳过单元测试在pom.xml加入以下插件, skip = true
 1234567891011&amp;lt;plugin&amp;gt;      &amp;lt;groupId&amp;gt;      	org.apache.maven.plugins      &amp;lt;/groupId&amp;gt;      &amp;lt;artifactId&amp;gt;      	maven-surefire-plugin">
-<meta property="og:updated_time" content="2015-08-06T11:56:45.000Z">
+<meta property="og:updated_time" content="2015-08-06T14:17:22.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Maven远程部署配置">
 <meta name="twitter:description" content="使用Maven构建构建时跳过单元测试在pom.xml加入以下插件, skip = true
@@ -115,6 +115,22 @@
         </li>
       
         
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            <i class="menu-item-icon icon-next-categories"></i> <br />
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            <i class="menu-item-icon icon-next-about"></i> <br />
+            关于
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             <i class="menu-item-icon icon-next-archives"></i> <br />
@@ -167,7 +183,7 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-08-06T19:56:45+08:00" content="2015-08-06">
+          <time itemprop="dateCreated" datetime="2015-08-06T22:17:22+08:00" content="2015-08-06">
             2015-08-06
           </time>
         </span>
@@ -194,9 +210,9 @@
 
       
         <span itemprop="articleBody"><h2 id="使用Maven构建">使用Maven构建</h2><h3 id="构建时跳过单元测试">构建时跳过单元测试</h3><p>在pom.xml加入以下插件, skip = true</p>
-<pre><code><span class="comment"><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">plugin</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">groupId</span>&gt;</span></span><br><span class="line">      	org.apache.maven.plugins</span><br><span class="line">      <span class="tag">&lt;/<span class="title">groupId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">artifactId</span>&gt;</span></span><br><span class="line">      	maven-surefire-plugin</span><br><span class="line">      <span class="tag">&lt;/<span class="title">artifactId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">configuration</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="title">skip</span>&gt;</span>true<span class="tag">&lt;/<span class="title">skip</span>&gt;</span>        </span><br><span class="line">      <span class="tag">&lt;/<span class="title">configuration</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">plugin</span>&gt;</span></span><br></pre></td></tr></table></figure></span>
+<pre><code><span class="comment"><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">plugin</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">groupId</span>&gt;</span></span><br><span class="line">      	org.apache.maven.plugins</span><br><span class="line">      <span class="tag">&lt;/<span class="title">groupId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">artifactId</span>&gt;</span></span><br><span class="line">      	maven-surefire-plugin</span><br><span class="line">      <span class="tag">&lt;/<span class="title">artifactId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">configuration</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="title">skip</span>&gt;</span>true<span class="tag">&lt;/<span class="title">skip</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="title">configuration</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">plugin</span>&gt;</span></span><br></pre></td></tr></table></figure></span>
 </code></pre><h3 id="构建时忽略单元测试错误">构建时忽略单元测试错误</h3><p>在pom.xml加入以下插件, testFailureIgnore = true</p>
-<pre><code><span class="comment"><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">plugin</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">groupId</span>&gt;</span></span><br><span class="line">      	org.apache.maven.plugins</span><br><span class="line">      <span class="tag">&lt;/<span class="title">groupId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">artifactId</span>&gt;</span></span><br><span class="line">      	maven-surefire-plugin</span><br><span class="line">      <span class="tag">&lt;/<span class="title">artifactId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">configuration</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="title">testFailureIgnore</span>&gt;</span>true<span class="tag">&lt;/<span class="title">testFailureIgnore</span>&gt;</span>     </span><br><span class="line">      <span class="tag">&lt;/<span class="title">configuration</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">plugin</span>&gt;</span></span><br></pre></td></tr></table></figure></span>
+<pre><code><span class="comment"><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">plugin</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">groupId</span>&gt;</span></span><br><span class="line">      	org.apache.maven.plugins</span><br><span class="line">      <span class="tag">&lt;/<span class="title">groupId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">artifactId</span>&gt;</span></span><br><span class="line">      	maven-surefire-plugin</span><br><span class="line">      <span class="tag">&lt;/<span class="title">artifactId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">configuration</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="title">testFailureIgnore</span>&gt;</span>true<span class="tag">&lt;/<span class="title">testFailureIgnore</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="title">configuration</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">plugin</span>&gt;</span></span><br></pre></td></tr></table></figure></span>
 </code></pre><h2 id="使用maven对wildfly进行远程部署">使用maven对wildfly进行远程部署</h2><h3 id="本地配置">本地配置</h3><p>在pom.xml加入以下插件, 使用 mvn wildfly:deploy 命令进行部署, mvn wildfly:undeploy 命令移除部署</p>
 <pre><code><span class="comment"><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">plugin</span>&gt;</span></span><br><span class="line">   	<span class="tag">&lt;<span class="title">groupId</span>&gt;</span>org.wildfly.plugins<span class="tag">&lt;/<span class="title">groupId</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="title">artifactId</span>&gt;</span>wildfly-maven-plugin<span class="tag">&lt;/<span class="title">artifactId</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="title">version</span>&gt;</span>1.0.0.Final<span class="tag">&lt;/<span class="title">version</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="title">configuration</span>&gt;</span></span><br><span class="line">                   <span class="tag">&lt;<span class="title">hostname</span>&gt;</span>$&#123;wildfly.hostname&#125;<span class="tag">&lt;/<span class="title">hostname</span>&gt;</span></span><br><span class="line">                   <span class="tag">&lt;<span class="title">port</span>&gt;</span>$&#123;wildfly.port&#125;<span class="tag">&lt;/<span class="title">port</span>&gt;</span></span><br><span class="line">                   <span class="tag">&lt;<span class="title">username</span>&gt;</span>$&#123;wildfly.username&#125;<span class="tag">&lt;/<span class="title">username</span>&gt;</span></span><br><span class="line">                   <span class="tag">&lt;<span class="title">password</span>&gt;</span>$&#123;wildfly.password&#125;<span class="tag">&lt;/<span class="title">password</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;/<span class="title">configuration</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="title">executions</span>&gt;</span></span><br><span class="line">               <span class="tag">&lt;<span class="title">execution</span>&gt;</span></span><br><span class="line">                   <span class="tag">&lt;<span class="title">phase</span>&gt;</span>package<span class="tag">&lt;/<span class="title">phase</span>&gt;</span></span><br><span class="line">                   <span class="tag">&lt;<span class="title">goals</span>&gt;</span></span><br><span class="line">                       <span class="tag">&lt;<span class="title">goal</span>&gt;</span>deploy<span class="tag">&lt;/<span class="title">goal</span>&gt;</span></span><br><span class="line">                   <span class="tag">&lt;/<span class="title">goals</span>&gt;</span></span><br><span class="line">               <span class="tag">&lt;/<span class="title">execution</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="title">executions</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">plugin</span>&gt;</span></span><br></pre></td></tr></table></figure></span>
 </code></pre><h3 id="远程配置">远程配置</h3><p>1、监听端口，默认为 9990</p>
@@ -207,13 +223,21 @@
 <li><a href="http://docs.jboss.org/wildfly/plugins/maven/latest/index.html" target="_blank" rel="external">wildfly-maven-plugin</a></li>
 <li><a href="http://blog.csdn.net/symgdwyh/article/details/4289080" target="_blank" rel="external">maven中跳过单元测试</a></li>
 <li><a href="http://blog.csdn.net/symgdwyh/article/details/4288972" target="_blank" rel="external">maven中忽略单元测试错误</a></li>
-<li><a href="http://lauraliparulo.altervista.org/jboss-wildfly-maven-plugin-to-deploy-on-localhostremote-server/" target="_blank" rel="external">Jboss / Wildfly maven plugin to deploy on localhost/remote server</a>    </li>
+<li><a href="http://lauraliparulo.altervista.org/jboss-wildfly-maven-plugin-to-deploy-on-localhostremote-server/" target="_blank" rel="external">Jboss / Wildfly maven plugin to deploy on localhost/remote server</a></li>
 </ul>
 </span>
       
     </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag">#java</a>
+          
+            <a href="/tags/maven/" rel="tag">#maven</a>
+          
+        </div>
       
 
       
@@ -284,15 +308,15 @@
           </div>
 
           <div class="site-state-item site-state-categories">
-            
+            <a href="/categories">
               <span class="site-state-item-count">0</span>
               <span class="site-state-item-name">分类</span>
-              
+              </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-count">2</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
@@ -302,6 +326,20 @@
         
 
         <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/azureland" target="_blank">github</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/yun2er" target="_blank">twitter</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/1235596113" target="_blank">weibo</a>
+              </span>
+            
           
         </div>
 
