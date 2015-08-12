@@ -63,7 +63,7 @@ var data = [
 
 
 var output = [">
-<meta property="og:updated_time" content="2015-08-12T16:55:40.000Z">
+<meta property="og:updated_time" content="2015-08-12T16:57:57.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="underscore.js sortBy() 排序问题">
 <meta name="twitter:description" content="最近在开发中有个需求，是要对数组中的对象，按照多个属性排序。举个栗子：
@@ -303,6 +303,7 @@ var output = [
 <blockquote>
 <p> sortBy _.sortBy(list, iteratee, [context])<br>返回一个排序后的list拷贝副本。如果传递iteratee参数，iteratee将作为list中每个值的排序依据。迭代器也可以是字符串的属性的名称进行排序的(比如 length)。</p>
 </blockquote>
+<a id="more"></a>
 <p>所以我马上就用起来了</p>
 <pre><code>output = _.sortBy(data, <span class="string">'level'</span>);
 <span class="comment">// 或者</span>

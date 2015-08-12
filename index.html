@@ -259,7 +259,7 @@
 
       
         
-          <span itemprop="articleBody"><p>最近在开发中有个需求，是要对数组中的对象，按照多个属性排序。<br>举个栗子：</p>
+          <p>最近在开发中有个需求，是要对数组中的对象，按照多个属性排序。<br>举个栗子：</p>
 <pre><code>var data = [
   {<span class="string">"level"</span> : <span class="number">1</span>, <span class="string">"order"</span> : <span class="number">2</span>},
      {<span class="string">"level"</span> : <span class="number">2</span>, <span class="string">"order"</span> : <span class="number">2</span>},
@@ -280,83 +280,11 @@ var output = [
 <blockquote>
 <p> sortBy _.sortBy(list, iteratee, [context])<br>返回一个排序后的list拷贝副本。如果传递iteratee参数，iteratee将作为list中每个值的排序依据。迭代器也可以是字符串的属性的名称进行排序的(比如 length)。</p>
 </blockquote>
-<p>所以我马上就用起来了</p>
-<pre><code>output = _.sortBy(data, <span class="string">'level'</span>);
-<span class="comment">// 或者</span>
-output = _.sortBy(data, <span class="function"><span class="keyword">function</span><span class="params">(item)</span></span>{
-    <span class="keyword">return</span> item.level;
-});
-</code></pre><p>输出:</p>
-<pre><code>[
-    {"<span class="attribute">level</span>" : <span class="value"><span class="number">1</span></span>, "<span class="attribute">order</span>" : <span class="value"><span class="number">2</span></span>},
-    {"<span class="attribute">level</span>" : <span class="value"><span class="number">1</span></span>, "<span class="attribute">order</span>" : <span class="value"><span class="number">1</span></span>},
-    {"<span class="attribute">level</span>" : <span class="value"><span class="number">2</span></span>, "<span class="attribute">order</span>" : <span class="value"><span class="number">2</span></span>},
-    {"<span class="attribute">level</span>" : <span class="value"><span class="number">2</span></span>, "<span class="attribute">order</span>" : <span class="value"><span class="number">1</span></span>}
-]
-</code></pre><p>是按照level ASC排序了， 可是order并没有排序。</p>
-<p>那就再改一下:</p>
-<pre><code>output = _.sortBy(<span class="keyword">array</span>, [<span class="string">'level'</span>, <span class="string">'order'</span>]);
-<span class="comment">// 或者</span>
-output = _.sortBy(<span class="keyword">array</span>, <span class="function"><span class="keyword">function</span><span class="params">(item)</span></span>{
-        <span class="keyword">return</span> [item.level, item.order];
-    });
-</code></pre><p>输出:</p>
-<pre><code>      <span class="comment">// 第一种方式</span>
- [
-    {<span class="string">"level"</span> : <span class="number">1</span>, <span class="string">"order"</span> : <span class="number">2</span>},
-       {<span class="string">"level"</span> : <span class="number">2</span>, <span class="string">"order"</span> : <span class="number">2</span>},
-       {<span class="string">"level"</span> : <span class="number">1</span>, <span class="string">"order"</span> : <span class="number">1</span>},
-       {<span class="string">"level"</span> : <span class="number">2</span>, <span class="string">"order"</span> : <span class="number">1</span>}
-    ]
-
-
-      <span class="comment">// 第二种方式</span>
-   [
-   {<span class="string">"level"</span> : <span class="number">1</span>, <span class="string">"order"</span> : <span class="number">1</span>},
-   {<span class="string">"level"</span> : <span class="number">1</span>, <span class="string">"order"</span> : <span class="number">2</span>},
-   {<span class="string">"level"</span> : <span class="number">2</span>, <span class="string">"order"</span> : <span class="number">1</span>},
-   {<span class="string">"level"</span> : <span class="number">2</span>, <span class="string">"order"</span> : <span class="number">2</span>}
-]
-</code></pre><p>第一种方式并没有排序，第二种正确的排序了。</p>
-<p>于是我又去看了一遍underscore.js的文档和源码。发现：</p>
-<blockquote>
-<p>_.sortBy() 接收的参数iteratee， 是用来作为排序的依据的。</p>
-<p>排序的时候，会把iteratee应用到每个排序的对象中，当传递的是字符串，会用来当做对象的属性名称，排序时会取对应的值为依据排序，如果传递的是函数，则以返回的结果为依据排序。</p>
-</blockquote>
-<p>所以第一种方式中 <code>iteratee = [&#39;level&#39;, &#39;order&#39;]</code>参数是无效的。</p>
-<p>第二种方式中，<code>return [item.level, item.order]</code>最后排序的时候会把数组转为字符串。所以当出现<code>{&#39;level&#39; : 12, &#39;order : 12&#39;}</code>的数据时，这个数据会排在<code>{&#39;level&#39; : 2, &#39;order&#39; : 2}</code>之前，因为排序的时候是’1212’, 跟’22’做比较，所以这种方式也不可以。</p>
-<p>那到底要怎么做呢。再次看了一下underscore.js的sortBy()源码的实现，发现这里的sort是stable的。也就是说，当排序遇到相等的值，会保留原来的顺序。</p>
-<p>举个栗子：</p>
-<blockquote>
-<p>有这么些扑克牌 [ 方块5， 红桃9， 梅花5，黑桃4 ]<br>当我们以点数大小排序的时候，stable的排序，方块5的排序永远会在梅花5的前面，也就是保留之前的排序。unstable的排序怎会有可能出现梅花5在方块5前面的情况。</p>
-</blockquote>
-<p>根据这个特性，我们在就可以这样子做 :</p>
-<pre><code><span class="comment">// 对order排序</span>
-<span class="built_in">data</span> = _<span class="built_in">.</span>sortBy(<span class="built_in">data</span>, <span class="string">'order'</span>);
-<span class="comment">// 对level排序</span>
-output = _sortBy(<span class="built_in">data</span>, <span class="string">'level'</span>);
-</code></pre><p> 输出结果: </p>
-<pre><code>[
-   {"<span class="attribute">level</span>" : <span class="value"><span class="number">1</span></span>, "<span class="attribute">order</span>" : <span class="value"><span class="number">1</span></span>},
-   {"<span class="attribute">level</span>" : <span class="value"><span class="number">1</span></span>, "<span class="attribute">order</span>" : <span class="value"><span class="number">2</span></span>},
-   {"<span class="attribute">level</span>" : <span class="value"><span class="number">2</span></span>, "<span class="attribute">order</span>" : <span class="value"><span class="number">1</span></span>},
-   {"<span class="attribute">level</span>" : <span class="value"><span class="number">2</span></span>, "<span class="attribute">order</span>" : <span class="value"><span class="number">2</span></span>}
-]
-</code></pre><p>不过这样写太丑了，用underscore的链式语法连起来：</p>
-<pre><code><span class="title">output</span> = _.chain(<span class="typedef"><span class="keyword">data</span>).sortBy<span class="container">('<span class="title">order'</span>)</span>.sortBy<span class="container">('<span class="title">level'</span>)</span>.value<span class="container">()</span>;</span>
-</code></pre><p>完美。</p>
-<p>这里需要注意的点有:</p>
-<ul>
-<li>要先sortBy()次要属性 [order], 再sortBy()主要属性[level]。</li>
-<li>默认是ASC，做DESC排序的时候，要注意调用reverse()的位置。</li>
-</ul>
-<p>再举个栗子:</p>
-<p>要按照level DESC, order ASC 来排序，要这样子：</p>
-<pre><code><span class="title">output</span> = _.chain(<span class="typedef"><span class="keyword">data</span>).sortBy<span class="container">('<span class="title">order'</span>)</span>.reverse<span class="container">()</span>.sortBy<span class="container">('<span class="title">level'</span>)</span>.reverse<span class="container">()</span>.value<span class="container">()</span>;</span>
-</code></pre><p>因为如果这样写：</p>
-<pre><code><span class="title">output</span> = _.chain(<span class="typedef"><span class="keyword">data</span>).sortBy<span class="container">('<span class="title">order'</span>)</span>.sortBy<span class="container">('<span class="title">level'</span>)</span>.reverse<span class="container">()</span>.value<span class="container">()</span>;</span>
-</code></pre><p>先对order进行ASC排序， 再对level进行ASC排序，最后reverse()，这个时候会把order和level的排序都变成DESC。 所以要用第一种写法。</p>
-</span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/08/13/underscore-js-sortBy-排序问题/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
         
       
     </div>
