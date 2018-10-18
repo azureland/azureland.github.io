@@ -4,7 +4,7 @@ git:
   depth: false
 branches:
   only:
-    - src
+    - dev
 
 # S: Build Lifecycle
 install:
