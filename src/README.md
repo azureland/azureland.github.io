@@ -3,3 +3,7 @@
 This is my first **VuePress** page.
 
 Gonna make my first commit to trigger travis CI, let's see what happeds next.
+
+test failed.
+
+test again 18:10:00.
